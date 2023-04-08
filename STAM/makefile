@@ -8,5 +8,5 @@ dist/STAMLexer.py: STAM.g4
 dist/STAMParser.py:  STAM.g4
 	$(ANTLR) -Dlanguage=Python3 STAM.g4 -visitor -o dist
 
-dist/STAMVisitor.py: STAM.g
+dist/STAMVisitor.py: STAM.g4
 	$(ANTLR) -Dlanguage=Python3 STAM.g4 -visitor -o dist

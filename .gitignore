@@ -1,0 +1,12 @@
+.vscode/configurationCache.log
+.vscode/dryrun.log
+.vscode/settings.json
+.vscode/targets.log
+STAM/dist/STAM.interp
+STAM/dist/STAM.tokens
+STAM/dist/STAMLexer.interp
+STAM/dist/STAMLexer.py
+STAM/dist/STAMLexer.tokens
+STAM/dist/STAMListener.py
+STAM/dist/STAMParser.py
+STAM/dist/STAMVisitor.py

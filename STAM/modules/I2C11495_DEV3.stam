@@ -1,0 +1,69 @@
+Module I2C11495_DEV3 {
+  ClientInterface EHPIC {
+    Protocol I2C.proto;
+  }
+  // I2CMux is required to support multiple
+  // 1687.1
+  Instance CTRL Of I2CMux {
+    Parameter num_host = 4;
+    ClientInterface CI = EHPIC;
+    HostInterface HI[0] = I2CSI1.CI;
+    HostInterface HI[1] = I2CSI2.CI;
+    HostInterface HI[2] = I2CDI1.CI;
+    HostInterface HI[3] = I2CDI2.CI;
+  }
+  Instance I2CSI1 Of I2C211495TE {
+    ClientInterface CI = CTRL.HI[0];
+    HostInterface SI = SI1687_1.CI;
+    Attribute input = ‘h10;
+    Attribute output = ‘h11;
+    Attribute status = ‘h12;
+    Attribute wfifo_depth = 8;
+    Attribute rfifo_depth = 8;
+  }
+  Instance IC2SI2 of I2C21145TE {
+    ClientInterface CI = CTRL.HI[1];
+    HostInterface SI = SI1687_1;
+    Attribute input = ‘h20;
+    Attribute output = ‘h21;
+    Attribute status = ‘h22;
+    Attribute wfifo_depth = 8;
+    Attribute rfifo_depth = 8;
+  }
+  Instance I2CDI1 Of I2CDigitalTE {
+    ClientInterface CI = CTRL.HI[2];
+    HostInterface DI = DI1687_1.CI;
+    Attribute input = ‘h30;
+    Attribute output = ‘h31;
+  }
+  Instance I2CDI2 Of I2CDigitalTE {
+    ClientInterface CI = CTRL.HI[3];
+    HostInterface DI = DI1687_2.CI;
+    Attribute input = ‘h32;
+    Attribute output = ‘h33;
+  }
+  Instance SI1687_1 Of ModelPointSiemens {
+    ClientInterface CI = I2CSI1.SI;
+    Attribute TopModule = MyTop;
+    Attribute AccessLink = MY1687SI1;
+    Attribute Project = MySI1;    
+  }
+  Instance SI1687_2 Of ModelPointCadence {
+    ClientInterface CI = I2CSI2.SI;
+    Attribute TopModule = MyTop;
+    Attribute AccessLink = MY1687SI2;
+    Attribute Project = MySI2;
+  }
+  Instance DI1687_1 Of ModelPointSynopsis {
+    ClientInterface CI = I2CDI1.DI;
+    Attribute TopModule = MyTop;
+    Attribute AccessLink = MY1687DI1;
+    Attribute Project = MYDI1;
+  }
+  Instance DI1687_2 Of ModelPointSynopsis {
+    ClientInterface CI = I2CDI2.DI;
+    Attribute TopModule = MyTop;
+    Attribute AccessLink = MY1687DI2;
+    Attribute Project = MYDI2;
+  }
+}

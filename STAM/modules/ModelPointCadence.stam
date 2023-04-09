@@ -1,0 +1,10 @@
+Module ModelPointCadence {
+  ClientInterface CI {
+    Protocol SCAN.proto;
+  }
+  TransformLibrary TLModelPointCadence {
+  }
+  Attribute Project = X;
+  Attribute TopModule = Y;
+  Attribute AccessLink = Z;    
+}

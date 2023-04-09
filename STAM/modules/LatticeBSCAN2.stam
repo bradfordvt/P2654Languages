@@ -1,0 +1,99 @@
+Module LatticeBSCAN2 {
+  ClientInterface PRIMARY_TAP {
+    Protocol JTAG.proto;
+  }
+  HostInterface MSP1 {
+    Protocol JTAG.proto;
+  }
+  HostInterface MSP2 {
+    Protocol JTAG.proto;
+  }
+  HostInterface MSP3 {
+    Protocol JTAG.proto;
+  }
+  HostInterface MSP4 {
+    Protocol JTAG.proto;
+  }
+  Instance LINKER Of LatticeResyncLinker {
+    Parameter num_msp = 4;
+    ClientInterface CI = PRIMARY_TAP;
+    HostInterface MSP[0] = MSP1;
+    HostInterface MSP[1] = MSP2;
+    HostInterface MSP[2] = MSP3;
+    HostInterface MSP[3] = MSP4;
+    HostInterface TAP = TAP.CI;
+    Attribute selector = SELECT;
+  }
+ Instance TAP Of TAPBridge {
+    ClientInterface CI = LINKER.TAP;
+    HostInterface IR = IR.CI;
+    HostInterface DRMUX = DRMUX.CI;
+  }
+  Instance IR Of SerialRegister {
+    ClientInterface CI = TAP.IR;
+    Attribute size = 8;
+    Attribute safe = ‘hFF;
+    Attribute sticky = “false”;
+    Attribute observable = “true”;
+  }
+  Instance DRMUX Of JTAGDRMUX {
+    Parameter num_hosts = 3;
+    ClientInterface CI = TAP.DRMUX;
+    HostInterface DR[0]  = BYPASS.CI;
+    HostInterface DR[1] = IDBUS.CI;
+    HostInterface DR[2] = SELECT.CI;
+    Attribute selector = “IR”;
+    // DR[0] is the default register selected
+    Attribute opcodes = “DR[0](11111111),
+                         DR[1](11111100,
+                               11111101),
+                         DR[2](01111110)”;
+  }
+ Instance TAP Of TAPBridge {
+    ClientInterface CI = LINKER.TAP;
+    HostInterface IR = IR.CI;
+    HostInterface DRMUX = DRMUX.CI;
+  }
+  Instance IR Of SerialRegister {
+    ClientInterface CI = TAP.IR;
+    Attribute size = 8;
+    Attribute safe = ‘hFF;
+    Attribute sticky = “false”;
+    Attribute observable = “true”;
+  }
+  Instance DRMUX Of JTAGDRMUX {
+    Parameter num_hosts = 3;
+    ClientInterface CI = TAP.DRMUX;
+    HostInterface DR[0]  = BYPASS.CI;
+    HostInterface DR[1] = IDBUS.CI;
+    HostInterface DR[2] = SELECT.CI;
+    Attribute selector = “IR”;
+    // DR[0] is the default register selected
+    Attribute opcodes = “DR[0](11111111),
+                         DR[1](11111100,
+                               11111101),
+                         DR[2](01111110)”;
+  }
+  Instance SELECT Of SerialRegister {
+    ClientInterface CI = DRMUX.DR[2];
+    Attribute size = 8;
+    Attribute safe = ‘h00;
+    Attribute sticky = “false”;
+    Attribute observable = “true”;
+  }
+  Instance IDBUS Of SerialRegister {
+    ClientInterface CI = DRMUX.DR[1];
+    Attribute size = 8;
+    Attribute safe = ‘h00;
+    Attribute sticky = “false”;
+    Attribute observable = “true”;
+  }
+  Instance BYPASS Of SerialRegister {
+    ClientInterface CI = DRMUX.DR[0];
+    Attribute size = 8;
+    Attribute safe = ‘h00;
+    Attribute sticky = “false”;
+    Attribute observable = “true”;
+  }
+  Attribute visible = “true”;
+}

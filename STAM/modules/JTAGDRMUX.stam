@@ -1,0 +1,14 @@
+Module JTAGDRMUX {
+  Parameter num_hosts = 3;
+  ClientInterface CI {
+    Protocol SCAN.proto;
+  }
+  HostInterface DR[$num_hosts] {
+    Protocol SCAN.proto;
+  }
+  TransformLibrary TLJTAGDRMux {
+  }
+  Attribute selector = “”;
+  Attribute opcodes = “”;
+  Attribute visible = “false”;  // Don’t show in tree path
+}

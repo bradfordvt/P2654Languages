@@ -1,0 +1,26 @@
+Module LatticeBSCAN2BB {
+  Parameter num_msp = 4;
+  ClientInterface PRIMARY_TAP {
+    Protocol JTAG.proto;
+  }
+  HostInterface MSP[$num_msp] {
+    Protocol JTAG.proto;
+  }
+  CommandInterface CMD {
+    Protocol SVF.proto;
+  }
+  // Specialized libraries to manage selection
+  // and aggregation.
+  // NOTE: Unable to directly call registers
+  // NOTE: Injection of vectors at PRIMARY_TAP
+  //       via SVF files may configure the
+  //       MSP selection.
+  TransformLibrary TLLatticeBSCAN2 {
+  }
+  InjectLibrary ILLatticeBSCAN2 {
+  }
+  CommandLibrary CLLatticeBSCAN2 {
+  }
+  // Show in tree path
+  Attribute visible = "true";
+}

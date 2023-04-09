@@ -1,0 +1,13 @@
+Module I2CFSTR {
+  ClientInterface EHPIC {
+    Protocol I2C.proto;
+  }
+  HostInterface HI {
+    Protocol FIFOStream.proto;
+  }
+  TransformLibrary TLI2CFIFOStream {
+  }
+  Attribute input = ‘h00;
+  Attribute output = ‘h01;
+  Attribute status = ‘h02;
+}

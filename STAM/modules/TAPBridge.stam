@@ -1,0 +1,14 @@
+Module TAPBridge {
+  ClientInterface CI {
+    Protocol JTAG.proto;
+  }
+  HostInterface IR {
+    Protocol SCAN.proto;
+  }
+  HostInterface DRMUX {
+    Protocol SCAN.proto;
+  }
+  TransformLibrary TLTAPBridge {
+  }
+  Attribute visible = “false”;  // Don’t show in tree path
+}

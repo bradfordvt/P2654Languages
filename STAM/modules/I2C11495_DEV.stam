@@ -1,0 +1,19 @@
+Module I2C11495_DEV {
+  ClientInterface EHPIC {
+    Protocol I2C.proto;
+  }
+  Instance I2CSI Of I2C11495TE {
+    ClientInterface CI = EHPIC;
+    HostInterface HI = SI1687_1.CI;
+    Attribute input = ‘h10;
+    Attribute output = ‘h11;
+    Attribute status = ‘h12;
+  }
+  Instance SI1687_1 Of SpecializedModelPoint {
+    ClientInterface CI = IC2SI.SI;
+    Attribute TopModule = MyTop;
+    Attribute AccessLink = MY1687SI1;
+    Attribute Project = MySI1;    
+  }
+}
+

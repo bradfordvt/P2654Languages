@@ -1,0 +1,12 @@
+Module FS1145TE {
+  ClientInterface CI {
+    Protocol FIFOStream.proto;
+  }
+  HostInterface SI {
+    Protocol SCAN.proto;
+  }
+  TransformLibrary TLFS11495TE {
+  }
+  Attribute wfifo_depth = 8;
+  Attribute rfifo_depth = 8;
+}

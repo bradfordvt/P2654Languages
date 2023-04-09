@@ -89,6 +89,7 @@ integer_expr_paren : '(' integer_expr ')'; // Parentheses
 integer_expr_arg : integer_expr_paren | pos_int | parameter_ref ;
 
 // eBNF – Lexical 
+SPACE : ( ' ' | '\t' | ('\r'? '\n') )+ -> skip ;
 // Multi-line Comments
 ML_COMMENT : '/*' .*? '*/' -> skip ;
 // Single-line Comments

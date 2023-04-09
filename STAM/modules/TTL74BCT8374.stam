@@ -1,0 +1,67 @@
+Module TTL74BCT8374 {
+  ClientInterface CI {
+    Protocol JTAG.proto;
+  }
+  CommandInterface CMD {
+    Protocol SVF.proto;
+  }
+  TransformLibrary TL8374 {
+  }
+  InjectLibrary IL8374 {
+  }
+  CommandLibrary CL8374 {
+  }
+  Instance TAP Of TAPBridge {
+    ClientInterface CI = CI;
+    HostInterface IR = IR.CI;
+    HostInterface DRMUX = DRMUX.CI;
+  }
+  Instance IR Of SerialRegister {
+    ClientInterface CI = TAP.IR;
+    Attribute size = 8;
+    Attribute safe = ‘hFF;
+    Attribute sticky = “false”;
+    Attribute observable = “true”;
+  }
+  Instance DRMUX Of JTAGDRMUX {
+    Parameter num_hosts = 3;
+    ClientInterface CI = TAP.DRMUX;
+    HostInterface DR[0]  = BYPASS.CI;
+    HostInterface DR[1] = BOUNDARY.CI;
+    HostInterface DR[2] = BCR.CI;
+    Attribute selector = “IR”;
+    // DR[0] is the default register selected
+    Attribute opcodes = “DR[0](11111111, 10001000, 
+                        0000101, 10000100,
+                        00000001, 00000000,
+                        00001101, 10001101,
+                        00001001, 10001001),
+                        DR[1](10000000, 00000010,
+                        10000010, 00000011,
+                        10000011, 00000110,
+                        10000110, 00000111,
+                        10000111, 00001010,
+                        10001010, 00001011,
+                        10001011, 00001100,
+                        10001100),
+                        DR[2](00001110, 10001110,
+                        00001111, 10001111)”;
+  }
+  Instance BYPASS Of SerialRegister {
+    ClientInterface CI = DRMUX.DR[0];
+    Attribute size = 1;
+    Attribute safe = 0;
+  }
+  Instance BOUNDARY Of SerialRegister {
+    ClientInterface CI = DRMUX.DR[1];
+    Attribute size = 18;
+    Attribute safe = ‘h00002;
+    Attribute sticky = “true”;
+  }
+  Instance BCR SerialRegister {
+    ClientInterface CI = DRMUX.DR[2];
+    Attribute size = 2;
+    Attribute safe = 0;
+  }
+  Attribute visible = “true”;
+}

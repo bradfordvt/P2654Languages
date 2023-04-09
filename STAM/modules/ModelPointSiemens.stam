@@ -1,0 +1,10 @@
+Module ModelPointSiemens {
+  ClientInterface CI {
+    Protocol SCAN.proto;
+  }
+  TransformLibrary TLModelPointSiemens {
+  }
+  Attribute Project = X;
+  Attribute TopModule = Y;
+  Attribute AccessLink = Z;    
+}

@@ -10,3 +10,16 @@ STAM/dist/STAMLexer.tokens
 STAM/dist/STAMListener.py
 STAM/dist/STAMParser.py
 STAM/dist/STAMVisitor.py
+.vscode/launch.json
+STAM/.antlr/STAM.interp
+STAM/.antlr/STAM.tokens
+STAM/.antlr/STAMLexer.interp
+STAM/.antlr/STAMLexer.java
+STAM/.antlr/STAMLexer.tokens
+STAM/.antlr/STAMParser.java
+STAM/__pycache__/MyVisitor.cpython-311.pyc
+STAM/dist/__init__.py
+STAM/dist/__pycache__/__init__.cpython-311.pyc
+STAM/dist/__pycache__/STAMLexer.cpython-311.pyc
+STAM/dist/__pycache__/STAMParser.cpython-311.pyc
+STAM/dist/__pycache__/STAMVisitor.cpython-311.pyc

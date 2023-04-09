@@ -1,0 +1,15 @@
+Module I2C11495TE {
+  ClientInterface EHPIC {
+    Protocol I2C.proto;
+  }
+  HostInterface HI {
+    Protocol SCAN.proto;
+  }
+  TransformLibrary TLI2C11495TE {
+  }
+  Attribute input = ‘h00;
+  Attribute output = ‘h01;
+  Attribute status = ‘h02;
+  Attribute wfifo_depth = 8;
+  Attribute rfifo_depth = 8;
+}

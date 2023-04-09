@@ -1,0 +1,10 @@
+Module ModelPointSynopsis {
+  ClientInterface CI {
+    Protocol DIO.proto;
+  }
+  TransformLibrary TLModelPointSynopsis {
+  }
+  Attribute Project = X;
+  Attribute TopModule = Y;
+  Attribute AccessLink = Z;    
+}

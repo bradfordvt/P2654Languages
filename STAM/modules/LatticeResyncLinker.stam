@@ -1,0 +1,16 @@
+Module LatticeResyncLinker {
+  Parameter num_msp = 4;
+  ClientInterface CI {
+    Protocol JTAG.proto;
+  }
+  HostInterface MSP[$num_msp] {
+    Protocol JTAG.proto;
+  }
+  HostInterface TAP {
+    Protocol JTAG.proto;
+  }
+  TransformLibrary “TLLatticeResyncLinker” {
+  }
+  Attribute selector = “”;
+  Attribute visible = “false”;
+}

@@ -1,0 +1,11 @@
+Module I2CMux {
+  Parameter num_host = 2;
+  ClientInterface EHPIC {
+    Protocol I2C.proto;
+  }
+  HostInterface HI[$num_host] {
+    Protocol I2C.proto;
+  }
+  TransformLibrary TLI2CMux {
+  }
+}

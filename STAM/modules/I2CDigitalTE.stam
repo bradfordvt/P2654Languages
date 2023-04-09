@@ -1,0 +1,12 @@
+Module I2CDigitalTE {
+  ClientInterface CI {
+    Protocol I2C.proto;
+  }
+  HostInterface DI {
+    Protocol DIO.proto;
+  }
+  TransformLibrary TLI2CDigitalTE {
+  }
+  Attribute input = ‘h00;
+  Attribute output = ‘h01;
+}

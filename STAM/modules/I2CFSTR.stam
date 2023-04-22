@@ -7,7 +7,7 @@ Module I2CFSTR {
   }
   TransformLibrary TLI2CFIFOStream {
   }
-  Attribute input = ‘h00;
-  Attribute output = ‘h01;
-  Attribute status = ‘h02;
+  Attribute input = 'h00;
+  Attribute output = 'h01;
+  Attribute status = 'h02;
 }

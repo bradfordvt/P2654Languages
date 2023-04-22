@@ -11,10 +11,10 @@ Module SerialRegister {
   }
   CommandLibrary CLSerialRegister {
   }
-  Attribute visible = “true”;  // Show in tree path
-  Attribute sticky = “false”;  // Values don’t persist after update
+  Attribute visible = "true";  // Show in tree path
+  Attribute sticky = "false";  // Values don’t persist after update
   Attribute size = 8;
   Attribute safe = 0;
   // Set to true if used as a selector for another module
-  Attribute observable = false;
+  Attribute observable = "false";
 }

@@ -7,6 +7,6 @@ Module I2CDigitalTE {
   }
   TransformLibrary TLI2CDigitalTE {
   }
-  Attribute input = ‘h00;
-  Attribute output = ‘h01;
+  Attribute input = 'h00;
+  Attribute output = 'h01;
 }

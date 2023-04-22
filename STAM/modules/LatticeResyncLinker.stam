@@ -11,6 +11,6 @@ Module LatticeResyncLinker {
   }
   TransformLibrary “TLLatticeResyncLinker” {
   }
-  Attribute selector = “”;
-  Attribute visible = “false”;
+  Attribute selector = "";
+  Attribute visible = "false";
 }

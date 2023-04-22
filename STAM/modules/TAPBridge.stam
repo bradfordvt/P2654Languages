@@ -10,5 +10,5 @@ Module TAPBridge {
   }
   TransformLibrary TLTAPBridge {
   }
-  Attribute visible = “false”;  // Don’t show in tree path
+  Attribute visible = "false";  // Don’t show in tree path
 }

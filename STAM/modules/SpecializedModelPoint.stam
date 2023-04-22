@@ -2,9 +2,9 @@ Module SpecializedModelPoint {
   ClientInterface CI {
     Protocol SCAN.proto;
   }
-  TransformLibrary TLMyRetargeterSCAN {
+  TransformLibrary TLModelPointSpecialized {
   }
-  Attribute Project = X;
-  Attribute TopModule = Y;
-  Attribute AccessLink = Z;    
+  Attribute Project = "X";
+  Attribute TopModule = "Y";
+  Attribute AccessLink = "Z";
 }

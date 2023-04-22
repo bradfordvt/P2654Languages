@@ -5,9 +5,9 @@ Module I2C11495_DEV2 {
   Instance I2CFS Of I2CFSTR {
     ClientInterface CI = EHPIC;
     HostInterface HI = FSSI.CI;
-    Attribute input = ‘h10;
-    Attribute output = ‘h11;
-    Attribute status = ‘h12;
+    Attribute input = 'h10;
+    Attribute output = 'h11;
+    Attribute status = 'h12;
   }
   Instance FSSI Of FS11495TE {
     ClientInterface CI = I2CFS.HI;
@@ -17,9 +17,9 @@ Module I2C11495_DEV2 {
   }
   Instance SI1687_1 Of SpecializedModelPoint {
     ClientInterface CI = FSSI.SI;
-    Attribute TopModule = MyTop;
-    Attribute AccessLink = MY1687SI1;
-    Attribute Project = MySI1;    
+    Attribute TopModule = "MyTop";
+    Attribute AccessLink = "MY1687SI1";
+    Attribute Project = "MySI1";
   }
 }
 

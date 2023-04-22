@@ -4,7 +4,7 @@ Module ModelPointCadence {
   }
   TransformLibrary TLModelPointCadence {
   }
-  Attribute Project = X;
-  Attribute TopModule = Y;
-  Attribute AccessLink = Z;    
+  Attribute Project = "X";
+  Attribute TopModule = "Y";
+  Attribute AccessLink = "Z";
 }

@@ -8,7 +8,7 @@ Module JTAGDRMUX {
   }
   TransformLibrary TLJTAGDRMux {
   }
-  Attribute selector = “”;
-  Attribute opcodes = “”;
-  Attribute visible = “false”;  // Don’t show in tree path
+  Attribute selector = "";
+  Attribute opcodes = "";
+  Attribute visible = "false";  // Don’t show in tree path
 }

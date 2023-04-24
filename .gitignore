@@ -23,3 +23,5 @@ STAM/dist/__pycache__/__init__.cpython-311.pyc
 STAM/dist/__pycache__/STAMLexer.cpython-311.pyc
 STAM/dist/__pycache__/STAMParser.cpython-311.pyc
 STAM/dist/__pycache__/STAMVisitor.cpython-311.pyc
+STAM/data/*.xml
+STAM/data/*.json
